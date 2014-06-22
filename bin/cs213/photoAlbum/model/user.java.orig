@@ -1,0 +1,132 @@
+package cs213.photoAlbum.model;
+
+import java.util.*;
+
+/**
+ * @author Michael
+ *
+ */
+public class user {
+	
+	/**uniqueID: string, used to login.
+	 * fullName: user's full name.
+	 * albumNum: Number of albums the user has.
+	 */
+	public String uniqueID;
+	public String fullName;
+	
+	public ArrayList<album> albumNames;
+	
+	/**
+	 * @param albumName- Name of album to be added.
+	 * Adds an album.
+	 */
+	public void addAlbum(String albumName){
+		
+		for(int i = 0; i < albumNames.size(); i++){
+			if(albumNames.get(i).name.equals(albumName)){
+			System.out.println("album already exists for user <" +  this.uniqueID + ">:");
+			System.out.println("<" + albumName + ">");
+			return;
+			}
+		}
+		album album1 = new album(albumName);
+		albumNames.add(album1);
+		System.out.println("created album for user <" +  this.uniqueID + ">:");
+		System.out.println("<" + albumName + ">");
+		
+	}
+	
+	public void listPhotos(String albumName){
+		for(int i = 0; i < albumNames.size(); i++){
+			if(albumNames.get(i).name.equals(albumName)){
+				int j = 0;
+				if(albumNames.get(i).albumContents.isEmpty()){
+					System.out.println("There are no photos for " + "<" + albumName + ">");
+					return;
+				}
+				System.out.println("Photos for " + "<" + albumName + ">");
+				while(j < albumNames.get(i).albumContents.size()){
+					System.out.println("<" + albumNames.get(i).albumContents.get(j).name + "> " + "-" 
+										+ "<" + albumNames.get(i).albumContents.get(j).getCal() + ">");
+				}
+				return;
+			}
+		}
+		System.out.println("album does not exist for user <" +  this.uniqueID + ">:");
+		System.out.println("<" + albumName + ">");
+		
+	}
+	
+	/**
+	 * @param albumName- Name of album to be deleted.
+	 * Deletes a user's album.
+	 */
+	public void deleteAlbum(String albumName){
+		for(int i = 0; i < albumNames.size(); i++){
+			if(albumNames.get(i).name.equals(albumName)){
+				albumNames.remove(albumNames.get(i));
+				System.out.println("deleted album for user <" +  this.uniqueID + ">:");
+				System.out.println("<" + albumName + ">");
+				return;
+				
+					}
+			}
+			System.out.println("album does not exist for user <" +  this.uniqueID + ">:");
+			System.out.println("<" + albumName + ">");
+			
+			
+		}
+	
+	/**
+	 * @param oldName- Name of the old album that will be changed.
+	 * @param newName- New name of the album.
+	 * Renames an album.
+	 */
+	public void renameAlbum(String oldName, String newName){
+		for(int i = 0; i < albumNames.size(); i++){
+			if(albumNames.get(i).name.equals(oldName)){
+				albumNames.remove(albumNames.get(i));
+				album album1 = new album(newName);
+				albumNames.add(album1);
+				System.out.println("edited album for user <" +  this.uniqueID + ">:");
+				System.out.println("changed <" + oldName + "> to " + "<" + newName + ">");
+				return;
+				
+					}
+			}
+		
+		
+			System.out.println("album does not exist for user <" +  this.uniqueID + ">:");
+			System.out.println("<" + oldName + ">");
+
+}
+	public void listAlbums(){
+		int i = 0;
+		if(albumNames.size() == 0){
+			System.out.println("no albums exist for user <" +  this.uniqueID + ">:");
+			return;
+		}
+		while(i < albumNames.size()){
+			System.out.println("<" + albumNames.get(i).name + ">"
+					+ " number of photos:" + "<" + albumNames.get(i).albumContents.size() +">");
+			i++;
+		}
+	}
+	 
+	
+	/**
+	 * @param uniqueID- The user's unique ID (String, used to login).
+	 * @param name- The user's full name.
+	 * Constructor for each user
+	 */
+	public user(String uniqueID, String name){
+		this.uniqueID = name;
+		this.fullName = name;
+		albumNames = new ArrayList();
+		
+	}
+	
+	
+
+}

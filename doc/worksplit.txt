@@ -1,0 +1,19 @@
+Work split
+
+Window to implement									| Team member
+Log-in screen										| Imran Farooqui
+Admin login screen (User management)				| Imran Farooqui
+User login screen(Lists albums & album manipulation)| Michael Sabbagh
+Create Album										| Michael Sabbagh
+Rename Album										| Imran Farooqui
+Search by date										| Imran Farooqui
+Search by tags										| Michael Sabbagh
+Search results										| Michael Sabbagh & Imran Farooqui
+Album view (photo thumbnails & photo manipulation)	| Michael Sabbagh & Imran Farooqui
+Add photo											| Imran Farooqui
+Recaption photo										| Michael Sabbagh
+Display photo										| Imran Farooqui
+Move photo											| Michael Sabbagh
+Add tag												| Michael Sabbagh
+Remove tag											| Imran Farooqui
+

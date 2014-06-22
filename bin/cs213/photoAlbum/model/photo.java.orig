@@ -1,0 +1,58 @@
+package cs213.photoAlbum.model;
+
+import java.util.*;
+
+/**
+ * @author Michael
+ *
+ */
+public class photo {
+
+	/**name: photo name.
+	 * caption: photo caption.
+	 * cal: calendar.
+	 */
+	String name;
+	String caption;
+	Calendar cal;
+	
+	/**
+	 * @return: Returns the photo name.
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name: Sets the photo name.
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return: returns the caption of the photo.
+	 */
+	public String getCaption() {
+		return caption;
+	}
+	/**
+	 * @param caption: Sets the caption of the photo.
+	 */
+	public void setCaption(String caption) {
+		this.caption = caption;
+	}
+	/**
+	 * @return: returns the calendar.
+	 */
+	public Calendar getCal() {
+		return cal;
+	}
+	/**
+	 * @param cal: Sets Calendar parameter.
+	 */
+	public void setCal(Calendar cal) {
+		this.cal = cal;
+	}
+	
+	
+
+}

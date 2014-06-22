@@ -1,0 +1,147 @@
+package cs213.photoAlbum.control;
+
+import cs213.photoAlbum.model.*;
+
+import java.util.*;
+import java.io.*;
+
+
+/**
+ * @author Michael & Imran
+ *
+ */
+public class Control {
+	
+	/**
+	 * back: backend object to manipulate user data.
+	 */
+	static backend back = new backend();
+	static ArrayList<user> userList = new ArrayList<user>();
+	
+	/**
+	 * @param cal1: first date.
+	 * @param cal2: second date.
+	 * @return true or false depending on if dates are the same or not.
+	 */
+	public boolean checkDates(Calendar cal1, Calendar cal2){
+		if(fixTimes(cal1).equals(fixTimes(cal2))){
+			return true;
+		}
+		else{
+			return false;
+			}
+		
+	}
+	
+	
+	
+	public Calendar fixTimes(Calendar cal){
+		cal.set(Calendar.MILLISECOND,0);
+		return cal;
+	}
+	
+	/**
+	 * @param userID: Unique ID user logs in with.
+	 * @param userPassword: Password the user logs in with.
+	 * @return true or false depending on if password matches ID.
+	 */
+	public boolean checkPassword(String userID, String userPassword){
+		//returns true to stop complaining 
+		return true;
+	}
+	
+	/**
+	 * @param user1: user to be added.
+	 * 
+	 */
+	public static void addUser(user user1){
+		userList.add(user1);
+		return;
+	}
+	
+	/**
+	 * @param user1: user to be deleted
+	 */
+	public static void deleteUser(user user1){
+		userList.remove(userList.indexOf(user1));
+		return;
+		
+	}
+	
+	/**
+	 * Lists all of the users that are saved.
+	 */
+	public static void listUsers(){
+		int i = 0;
+		
+		while(i<userList.size()){
+			System.out.println("<" + userList.get(i).uniqueID + ">");
+			i++;
+		}
+	}
+	
+	
+	
+	
+	/**
+	 * @return new user usr created by data input from user.
+	 */
+	public static user newUser(){
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Input user login: ");
+		String userID = scan.next();
+		
+		
+		System.out.println("Input first and last name: ");
+		String userFullName = scan.next();
+		
+		user usr = new user(userID, userFullName);
+		back.setUsr(usr);
+		back.writeUser();
+		
+		addUser(usr);
+		
+		System.out.println("New user created\n" );
+
+		
+		scan.close();
+		
+		return usr;
+		
+		
+		
+	}
+	
+	public static void main(String args[]){
+		Scanner scan = new Scanner(System.in);
+		String input = "";
+		
+	//	while(input != "logout"){
+		
+//		input = scan.next();
+		
+		photo photo1 = new photo();
+		photo1.setTags();
+		
+		photo1.addTag("location", "new jersey");
+		photo1.addTag("name", "bob");
+		photo1.addTag("location", "sf");
+		photo1.addTag("location", "new york");
+		photo1.removeTag("location", "sf");
+		
+		photo1.addTag("location", "mn");
+	
+		photo1.editTag("location", "new jersey", "mm");
+		photo1.listTags();
+		
+		scan.close();
+		
+	//	}	
+	}
+	
+	
+	
+
+}
